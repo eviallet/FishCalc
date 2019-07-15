@@ -1,3 +1,5 @@
+# TODO comment out the interpreter !
+
 from PyQt5.QtWidgets import QApplication
 from ui.ui import MainWindow
 from sys import argv
