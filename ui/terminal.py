@@ -17,6 +17,7 @@ class Terminal(QTextEdit):
         self.last_query = last_query_bridge
         self.current_history_index = 0
         self.user_text = ''
+        self.user_text = ''
 
         font, style_sheet = get_style('')
 
@@ -25,7 +26,6 @@ class Terminal(QTextEdit):
         self.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
 
     # TODO move cursor can edit text
-    # TODO '<' and '>' bugs
     def keyPressEvent(self, key_event: QKeyEvent):
         if key_event.key() == Qt.Key_Left or key_event.key() == Qt.Key_Right:
             super(Terminal, self).keyPressEvent(key_event)
@@ -45,12 +45,18 @@ class Terminal(QTextEdit):
         elif key_event.key() == Qt.Key_Enter or key_event.key() == Qt.Key_Return:
             self.interpret_request.emit(self.toPlainText())
             self.clear_terminal()
+        elif key_event.key() == Qt.Key_Less:
+            self.insertPlainText('&lt;')
+        elif key_event.key() == Qt.Key_Greater:
+            self.insertPlainText('&gt;')
         else:
             super(Terminal, self).keyPressEvent(key_event)
 
-        self.user_text = self.toPlainText().replace('sqrt', '√(').replace('->', '⇒')
+        self.user_text = self.toPlainText()\
+            .replace('sqrt', '√(').replace('->', '⇒')\
+            .replace('<', '&lt;').replace('>', '&gt;')
 
-        self.setText('')
+        self.clear()
         self.insertHtml(Highlighter.highlight(self.user_text))
 
     def history_up(self):
@@ -75,5 +81,5 @@ class Terminal(QTextEdit):
             self.clear_terminal()
 
     def clear_terminal(self):
-        self.setText('')
+        self.clear()
         self.current_history_index = 0

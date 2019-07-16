@@ -17,6 +17,7 @@ class Interpreter(QObject):
         self.was_retry = False
 
     def interpret(self, text: str):
+        text = text.replace('&lt;', '<').replace('&gt;', '>')
         try:
             tokens, had_error = self.scanner.scan(text)
         except Error as err:
