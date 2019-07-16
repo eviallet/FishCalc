@@ -30,9 +30,7 @@ Simply type in an expression for it to evaluate. You can also :
 
 
 # Known bugs
-- to highlight the text in real time, the terminal text is replaced on each key press :
-  - when converting to plain text, logic tests like "a < b" instead give "a b"
-  - can't properly use the cursor -> to fix an error at the start of an expression, you have to backspace your way to it
+- to highlight the text in real time, the terminal text is replaced on each key press; hence, the cursor can't be used properly → to fix an error at the start of an expression, you have to backspace your way to it
  
 # TODO
 - more conversion options (physical units...)
