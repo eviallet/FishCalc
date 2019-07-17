@@ -128,7 +128,7 @@ class Scanner:
         return self.source[self.current+1]
 
     def match(self, c):
-        if self.source[self.current] != c:
+        if not self.is_at_end() and self.source[self.current] != c:
             return False
         self.current += 1
         return True
