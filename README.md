@@ -3,7 +3,7 @@
 This small calculator (<1MB) comes with a custom interpreter that :
 - highlight functions, keywords, constants and parenthesis while typing
 - allow to use variables
-- allow to save or load scripts
+- loaded scripts
 - handle conversions (for now, ```rad``` and ```deg```)
 - handle logic tests
 - give the user helpful error messages
@@ -27,10 +27,6 @@ Simply type in an expression for it to evaluate. You can also :
 - use ```ans``` which is the last calculation result
 - represent numbers as ```1e-3``` or ```10^3```
 - convert an angle to degrees or radians : ```cos(pi) -> deg```
-
-
-# Known bugs
-- to highlight the text in real time, the terminal text is replaced on each key press; hence, the cursor can't be used properly → to fix an error at the start of an expression, you have to backspace your way to it
  
 # TODO
 - more conversion options (physical units...)
