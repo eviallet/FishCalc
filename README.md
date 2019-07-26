@@ -17,6 +17,10 @@ The UI is built with PyQt5.
 <img src="Capture2.PNG" height="432" width="602">
 
 
+# Requirements
+
+```PyQt5 >= 5.13.0```
+
 # Usage
 
 Simply type in an expression for it to evaluate. You can also :
